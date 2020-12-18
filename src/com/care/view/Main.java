@@ -1,24 +1,29 @@
 package com.care.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Main extends JFrame {
 
+	/**
+	 * 
+	 */
 	private JPanel contentPane;
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField txtLogin;
+	private JPasswordField passSenha;
 
 	/**
 	 * Launch the application.
@@ -41,7 +46,7 @@ public class Main extends JFrame {
 	 */
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(450, 200, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -64,17 +69,32 @@ public class Main extends JFrame {
 		lblNewLabel_1_1.setBounds(68, 131, 62, 25);
 		contentPane.add(lblNewLabel_1_1);
 		
-		textField = new JTextField();
-		textField.setBounds(140, 91, 194, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtLogin = new JTextField();
+		txtLogin.setBounds(140, 91, 194, 20);
+		contentPane.add(txtLogin);
+		txtLogin.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(140, 135, 194, 20);
-		contentPane.add(passwordField);
+		passSenha = new JPasswordField();
+		passSenha.setBounds(140, 135, 194, 20);
+		contentPane.add(passSenha);
 		
-		JButton btnNewButton = new JButton("Entrar");
-		btnNewButton.setBounds(245, 177, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (txtLogin.getText().equals("admin") && new String (passSenha.getPassword()).equals("1234")) {
+					Logado screen = new Logado();
+					screen.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+				}
+			}
+		}
+		);
+		btnEntrar.setBounds(245, 177, 89, 23);
+		contentPane.add(btnEntrar);
+		
+		JLabel lblStatus = new JLabel("");
+		lblStatus.setBounds(198, 222, 46, 14);
+		contentPane.add(lblStatus);
 	}
 }
