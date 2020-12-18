@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.SystemColor;
+import java.awt.Font;
 
 public class Logado extends JFrame {
 
@@ -41,7 +42,8 @@ public class Logado extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bem vindo");
+		JLabel lblNewLabel = new JLabel("Bem vindo!");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(10, 11, 192, 32);
 		contentPane.add(lblNewLabel);
 	}
