@@ -53,17 +53,17 @@ public class Main extends JFrame {
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(450, 200, 450, 253);
+		setBounds(100, 100, 450, 195);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Medical Care");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		JLabel lblNewLabel = new JLabel("Medical Shell");
+		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 23, 414, 35);
+		lblNewLabel.setBounds(46, 23, 378, 35);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Login: ");
@@ -102,13 +102,12 @@ public class Main extends JFrame {
 					if(login == true && senha == true) {
 						break;
 					}
-					
 				}
-				
 				
 				if (login == true && senha == true) {
 					Logado screen = new Logado();
 					screen.setVisible(true);
+					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos. Tente novamente", "Login Error", JOptionPane.ERROR_MESSAGE, iconError);
 				}
@@ -117,7 +116,7 @@ public class Main extends JFrame {
 		);
 		
 		
-		btnEntrar.setBounds(270, 139, 64, 64);
+		btnEntrar.setBounds(344, 69, 64, 64);
 		contentPane.add(btnEntrar);
 		btnEntrar.setBorder(null);
 		btnEntrar.setBackground(null);
@@ -131,6 +130,7 @@ public class Main extends JFrame {
 		contentPane.add(iconFrame);
 		
 		JLabel lblNewLabel_2 = new JLabel("Acompanhamento de pacientes");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_2.setBounds(155, 50, 194, 14);
 		contentPane.add(lblNewLabel_2);
 	}
