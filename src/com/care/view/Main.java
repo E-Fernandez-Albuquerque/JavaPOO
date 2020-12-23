@@ -54,11 +54,12 @@ public class Main extends JFrame {
 		setResizable(false);
 		
 		//LOGIN & SENHA:
+		//Arrays para validação do login até conhecimentos necessários de Banco de Dados com Java
 		String logins[] = {"eric", "erick", "marcelo"};
 		String senhas[] = {"1234", "abcd", "xyz"};
 		
 		
-		//ICONS:
+		//ICONS: Carrega imagens utilizadas como ícones durante o projeto
 		ImageIcon icon = new ImageIcon("src/imgs/check.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medical.png");
 
@@ -126,19 +127,21 @@ public class Main extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ImageIcon iconError = new ImageIcon("src/imgs/fail.png");
+				//Inicialização de variaveis booleanas de verificaão de login e senha com valores false
 				boolean login = false;
 				boolean senha = false;
 				
 				for(int i = 0; i < logins.length; i++) {
 					
-					login = txtLogin.getText().equals(logins[i]);
-					senha = new String (passSenha.getPassword()).equals(senhas[i]);
+					login = txtLogin.getText().equals(logins[i]); //Recebimento do campo Login
+					senha = new String (passSenha.getPassword()).equals(senhas[i]); //Recebimento do campo Senha
 					
 					if(login == true && senha == true) {
 						break;
 					}
 				}
 				
+				//Verificação de variáveis Login e Senha como true or false
 				if (login == true && senha == true) {
 					Logado screen = new Logado();
 					screen.setVisible(true);

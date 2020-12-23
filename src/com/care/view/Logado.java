@@ -100,8 +100,8 @@ public class Logado extends JFrame {
 				
 			}
 		});
-		btnAdd.setBackground(null);
-		btnAdd.setBorder(null);
+		btnAdd.setBackground(null); 
+		btnAdd.setBorder(null); 
 		btnAdd.setBounds(116, 65, 64, 64);
 		contentPane.add(btnAdd);
 		

@@ -53,13 +53,15 @@ public class PeoplePlus extends JFrame {
 	 */
 	public PeoplePlus(){
 		
-		//DATA_ARRAYS:
+		//DATA_ARRAYS: Arrays para armazenamento temporário e de verificação dos valores recebidos por formulário. Válidos apenas até maior conhecimento da integração de Banco de Dados ao Java.
 		//Pacientes 
 		String[][] paciente = new String[10][9];
 		String[] temp = new String[9];
 		
+		
 		//WINDOW_TITLE:
 		setTitle("Adicionar paciente");
+		
 		
 		//WINDOW_RESIZE:
 		setResizable(false);
@@ -155,7 +157,7 @@ public class PeoplePlus extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		
-		//MASKS:
+		//MASKS: Criação das máscaras necessárias para formulário
 		//Birth
 		MaskFormatter fmtBirth = null;
 		try {
@@ -263,7 +265,7 @@ public class PeoplePlus extends JFrame {
 				temp[7] = JFCPF.getText();
 				temp[8] = JFBirth.getText();
 				
-				//Transfere os valores recebidos no array temporário para o array definitivo (Matriz)
+				//Transfere os valores recebidos no array temporário para o array "definitivo".
 				for(int i = 0; i < 10; i++) {
 					if (paciente[i][0] != null) {
 						continue;
