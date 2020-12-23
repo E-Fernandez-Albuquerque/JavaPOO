@@ -45,9 +45,11 @@ public class Historico extends JFrame {
 	 */
 	public Historico() {
 		
+		//ICONS:
 		ImageIcon back = new ImageIcon("src/imgs/back.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medicalMicro.png");
 		
+		//JFRAME:
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -55,6 +57,25 @@ public class Historico extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		
+		//LABELS:
+		//Label Title
+		JLabel lblTitle = new JLabel("Hist\u00F3rico de paciente");
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitle.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 30));
+		
+		//Label Icon
+		JLabel lblIcon = new JLabel(medical);
+		
+		//Label Paciente
+		JLabel lblNewLabel = new JLabel("Paciente:");
+		
+		//Label CPF
+		JLabel lblCpf = new JLabel("CPF:");
+		
+		
+		//BUTTONS:
+		//Back
 		JButton btnBack = new JButton("", back);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -66,20 +87,12 @@ public class Historico extends JFrame {
 		btnBack.setBackground(null);
 		btnBack.setBorder(null);
 		
-		JLabel lblTitle = new JLabel("Hist\u00F3rico de paciente");
-		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 30));
 		
-		JLabel lblIcon = new JLabel(medical);
-		
-		JLabel lblNewLabel = new JLabel("Paciente:");
-		
-		JLabel lblCpf = new JLabel("CPF:");
-		
+		//TABLE:
 		table = new JTable();
 		
 		
-		
+		//GROUPLAYOUT CONFIG
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

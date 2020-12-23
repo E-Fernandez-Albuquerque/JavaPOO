@@ -48,9 +48,7 @@ public class Pesquisa extends JFrame {
 	public Pesquisa() {
 		
 		
-		ImageIcon back = new ImageIcon("src/imgs/back.png");
-		ImageIcon medical = new ImageIcon("src/imgs/medicalMicro.png");
-		
+		//JFRAME
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 558, 313);
 		contentPane = new JPanel();
@@ -59,12 +57,27 @@ public class Pesquisa extends JFrame {
 		setContentPane(contentPane);
 		
 		
+		//ICONS:
+		ImageIcon back = new ImageIcon("src/imgs/back.png");
+		ImageIcon medical = new ImageIcon("src/imgs/medicalMicro.png");
+		
+		
+		//LABELS:
+		//Title
 		JLabel lblTitle = new JLabel("Resultados de pesquisa");
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setFont(new Font("Tw Cen MT", Font.PLAIN, 30));
 		
+		//Icon
 		JLabel lblIcon = new JLabel(medical);
 		
+		//Seleção
+		JLabel lblNewLabel = new JLabel("Selecione o paciente em consulta:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		
+		//BUTTONS:
+		//Back
 		JButton btnBack = new JButton("", back);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,8 +89,7 @@ public class Pesquisa extends JFrame {
 		btnBack.setBorder(null);
 		btnBack.setBackground(null);
 		
-		table = new JTable();
-		
+		//Select
 		JButton btnNewButton = new JButton("Escolher paciente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,10 +99,12 @@ public class Pesquisa extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("Selecione o paciente em consulta:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		//TABLE:
+		table = new JTable();
 		
 		
+		//GROUPLAYOUT CONFIG
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

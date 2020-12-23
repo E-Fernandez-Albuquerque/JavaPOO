@@ -45,11 +45,15 @@ public class Registro extends JFrame {
 	 * Create the frame.
 	 */
 	public Registro() {
+		
+		
+		//ICONS:
 		ImageIcon back = new ImageIcon("src/imgs/back.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medicalMicro.png");
 		ImageIcon check = new ImageIcon("src/imgs/check.png");
 		
 		
+		//MASK:
 		MaskFormatter fmtDataMask = null;
 		try {
 			fmtDataMask = new MaskFormatter("##/##/####");
@@ -57,6 +61,8 @@ public class Registro extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		
+		//JFRAME
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 562, 484);
@@ -66,40 +72,73 @@ public class Registro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		//LABELS:
+		//Title
 		JLabel lblTitle = new JLabel("Novo registro m\u00E9dico");
 		lblTitle.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 30));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setBounds(66, 8, 411, 40);
 		contentPane.add(lblTitle);
 		
+		//Paciente
 		JLabel lblPaciente = new JLabel("Paciente:");
 		lblPaciente.setBounds(10, 82, 63, 14);
 		contentPane.add(lblPaciente);
 		
+		//CPF
 		JLabel lblCPF = new JLabel("CPF:");
 		lblCPF.setBounds(10, 99, 46, 14);
 		contentPane.add(lblCPF);
 		
+		//Data
 		JLabel lblData = new JLabel("Data:");
 		lblData.setBounds(10, 159, 46, 14);
 		contentPane.add(lblData);
 		
+		//Especialidade
 		JLabel lblEspecialidade = new JLabel("Especialidade m\u00E9dica:");
 		lblEspecialidade.setBounds(10, 180, 135, 20);
 		contentPane.add(lblEspecialidade);
 		
+		//Obs
 		JLabel lblObs = new JLabel("Observa\u00E7\u00F5es:");
 		lblObs.setBounds(10, 209, 103, 14);
 		contentPane.add(lblObs);
 		
+		//Icon
+		JLabel lblIcon = new JLabel(medical);
+		lblIcon.setBounds(498, 8, 48, 48);
+		contentPane.add(lblIcon);
+		
+		//Save
+		JLabel lblSave = new JLabel("Salvar");
+		lblSave.setFont(new Font("Tw Cen MT", Font.PLAIN, 11));
+		lblSave.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSave.setBounds(487, 423, 46, 14);
+		contentPane.add(lblSave);
+		
+		
+		//INPUTS:
+		//TxtArea_Obs
 		JTextArea txtObs = new JTextArea();
 		txtObs.setBounds(10, 230, 523, 134);
 		contentPane.add(txtObs);
 		
+		//FormatedData
 		JFormattedTextField ftmData = new JFormattedTextField(fmtDataMask);
 		ftmData.setBounds(155, 156, 154, 20);
 		contentPane.add(ftmData);
 		
+		//Especialidade
+		txtEspecialidade = new JTextField();
+		txtEspecialidade.setBounds(155, 181, 154, 20);
+		contentPane.add(txtEspecialidade);
+		txtEspecialidade.setColumns(10);	
+		
+		
+		//BUTTONS:
+		//Back
 		JButton btnBack = new JButton("", back);
 		btnBack.setBackground(null);
 		btnBack.setBorder(null);
@@ -113,10 +152,7 @@ public class Registro extends JFrame {
 		btnBack.setBounds(8, 8, 48, 48);
 		contentPane.add(btnBack);
 		
-		JLabel lblIcon = new JLabel(medical);
-		lblIcon.setBounds(498, 8, 48, 48);
-		contentPane.add(lblIcon);
-		
+		//Check
 		JButton btnSave = new JButton("", check);
 		btnSave.setBackground(null);
 		btnSave.setBorder(null);
@@ -127,16 +163,5 @@ public class Registro extends JFrame {
 		});
 		btnSave.setBounds(487, 375, 48, 48);
 		contentPane.add(btnSave);
-		
-		JLabel lblSave = new JLabel("Salvar");
-		lblSave.setFont(new Font("Tw Cen MT", Font.PLAIN, 11));
-		lblSave.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSave.setBounds(487, 423, 46, 14);
-		contentPane.add(lblSave);
-		
-		txtEspecialidade = new JTextField();
-		txtEspecialidade.setBounds(155, 181, 154, 20);
-		contentPane.add(txtEspecialidade);
-		txtEspecialidade.setColumns(10);
 	}
 }
