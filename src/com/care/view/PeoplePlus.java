@@ -290,7 +290,5 @@ public class PeoplePlus extends JFrame {
 		btnCheck.setBackground((Color) null);
 		btnCheck.setBounds(685, 350, 48, 48);
 		contentPane.add(btnCheck);
-		
-
 	}
 }

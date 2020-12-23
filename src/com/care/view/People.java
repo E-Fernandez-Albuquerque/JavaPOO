@@ -131,7 +131,7 @@ public class People extends JFrame {
 		JButton btnSearch = new JButton("", search);
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Acompanhamento screenA = new Acompanhamento();
+				Pesquisa screenA = new Pesquisa();
 				screenA.setVisible(true);
 				dispose();
 			}
