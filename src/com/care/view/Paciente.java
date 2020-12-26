@@ -39,6 +39,10 @@ public class Paciente extends JFrame {
 	 */
 	public Paciente() {
 		
+		//WINDOW_TITLE
+		setTitle("Paciente");
+		
+		
 		//WINDOW_RESIZE:
 		setResizable(false);
 		

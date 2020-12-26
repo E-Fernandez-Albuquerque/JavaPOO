@@ -47,6 +47,9 @@ public class Pesquisa extends JFrame {
 	 */
 	public Pesquisa() {
 		
+		//WINDOW_TITLE
+		setTitle("Pesquisar");
+		
 		
 		//JFRAME
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

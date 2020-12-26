@@ -46,6 +46,9 @@ public class Registro extends JFrame {
 	 */
 	public Registro() {
 		
+		//WINDOW_TITLE
+		setTitle("Registrar consulta/condição");
+		
 		
 		//ICONS:
 		ImageIcon back = new ImageIcon("src/imgs/back.png");

@@ -45,6 +45,10 @@ public class People extends JFrame {
 	 */
 	public People() {
 		
+		//WINDOW_TITLE
+		setTitle("Pacientes");
+				
+		
 		//WINDOW_TITLE:
 		setTitle("Pacientes");
 		

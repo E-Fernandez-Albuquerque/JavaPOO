@@ -41,7 +41,7 @@ public class Logado extends JFrame {
 	public Logado() {
 		
 		//WINDOW_TITLE:
-		setTitle("Logado");
+		setTitle("Bem-vindo!");
 		
 		//ICONS:
 		ImageIcon plus = new ImageIcon("src/imgs/peoplePlus.png");
@@ -63,7 +63,7 @@ public class Logado extends JFrame {
 		
 		//LABELS:
 		//Welcome
-		JLabel lblNewLabel = new JLabel("Bem vindo!");
+		JLabel lblNewLabel = new JLabel("Bem-vindo!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 22, 414, 32);
 		lblNewLabel.setFont(new Font("Tw Cen MT Condensed", Font.PLAIN, 30));
@@ -133,5 +133,11 @@ public class Logado extends JFrame {
 		btnNewButton.setBorder(null);
 		btnNewButton.setBounds(10, 6, 48, 48);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("Sair");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tw Cen MT", Font.PLAIN, 11));
+		lblNewLabel_2.setBounds(10, 51, 46, 14);
+		contentPane.add(lblNewLabel_2);
 	}
 }

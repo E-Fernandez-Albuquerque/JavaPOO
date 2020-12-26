@@ -45,6 +45,9 @@ public class Historico extends JFrame {
 	 */
 	public Historico() {
 		
+		//WINDOW_TITLE
+				setTitle("Histórico");
+		
 		//ICONS:
 		ImageIcon back = new ImageIcon("src/imgs/back.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medicalMicro.png");

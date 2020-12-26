@@ -53,6 +53,10 @@ public class PeoplePlus extends JFrame {
 	 */
 	public PeoplePlus(){
 		
+		//WINDOW_TITLE
+		setTitle("Adicionar paciente");
+		
+		
 		//DATA_ARRAYS: Arrays para armazenamento temporário e de verificação dos valores recebidos por formulário. Válidos apenas até maior conhecimento da integração de Banco de Dados ao Java.
 		//Pacientes 
 		String[][] paciente = new String[10][9];
