@@ -62,6 +62,7 @@ public class Main extends JFrame {
 		//ICONS: Carrega imagens utilizadas como ícones durante o projeto
 		ImageIcon icon = new ImageIcon("src/imgs/check.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medical.png");
+		ImageIcon iconError = new ImageIcon("src/imgs/fail.png");
 
 		
 		//JFRAME:
@@ -126,11 +127,10 @@ public class Main extends JFrame {
 		JButton btnEntrar = new JButton("", icon);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ImageIcon iconError = new ImageIcon("src/imgs/fail.png");
+
 				//Inicialização de variaveis booleanas de verificaão de login e senha com valores false
 				boolean login = false;
 				boolean senha = false;
-				
 				for(int i = 0; i < logins.length; i++) {
 					
 					login = txtLogin.getText().equals(logins[i]); //Recebimento do campo Login
