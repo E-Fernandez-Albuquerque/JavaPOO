@@ -131,8 +131,9 @@ public class Main extends JFrame {
 				//Inicialização de variaveis booleanas de verificaão de login e senha com valores false
 				boolean login = false;
 				boolean senha = false;
+				
+				//Testagem dos campos login e senha até que ambos estejam "true"
 				for(int i = 0; i < logins.length; i++) {
-					
 					login = txtLogin.getText().equals(logins[i]); //Recebimento do campo Login
 					senha = new String (passSenha.getPassword()).equals(senhas[i]); //Recebimento do campo Senha
 					
@@ -152,10 +153,16 @@ public class Main extends JFrame {
 			}
 		}
 		);
-		btnEntrar.setBounds(344, 69, 64, 64);
+		btnEntrar.setBounds(344, 80, 48, 48);
 		contentPane.add(btnEntrar);
 		btnEntrar.setBorder(null);
 		btnEntrar.setBackground(null);
+		
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Tw Cen MT", Font.PLAIN, 11));
+		lblLogin.setBounds(344, 125, 48, 14);
+		contentPane.add(lblLogin);
 		
 		
 	}
