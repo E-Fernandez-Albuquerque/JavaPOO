@@ -1,6 +1,6 @@
 package com.care.model;
 
-public class PacienteConsulta {
+public class ModelConsulta {
 	
 	
 

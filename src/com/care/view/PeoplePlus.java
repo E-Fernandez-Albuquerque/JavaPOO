@@ -21,7 +21,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.text.MaskFormatter;
 
-import com.care.model.Paciente;
+import com.care.controller.PacienteDAO;
+import com.care.model.ModelPaciente;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.SwingConstants;
@@ -56,7 +57,7 @@ public class PeoplePlus extends JFrame {
 	 */
 	public PeoplePlus(){
 		
-		Paciente paciente = new Paciente();
+		ModelPaciente paciente = new ModelPaciente();
 		
 		//WINDOW_TITLE
 		setTitle("Adicionar paciente");
@@ -258,7 +259,21 @@ public class PeoplePlus extends JFrame {
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				ModelPaciente paciente = new ModelPaciente();
+				PacienteDAO dao = new PacienteDAO();
 				
+				paciente.setNome(txtName.getText());
+				paciente.setEmail(txtMail.getText());
+				paciente.setEndereco(txtAddress.getText());
+				paciente.setNumeroEndereco(txtNumber.getText());
+				paciente.setObs(txtObs.getText());
+				paciente.setRg(JFRG.getText());
+				paciente.setCpf(JFCPF.getText());
+				paciente.setTelefone(JFPhone.getText());
+				paciente.setNascimento(JFBirth.getText());
+				
+				dao.cadastroPaciente(paciente);
+		
 				
 				/*
 				//Recebe os valores do campos do paciente de forma temporária

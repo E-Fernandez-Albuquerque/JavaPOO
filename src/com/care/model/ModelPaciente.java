@@ -1,30 +1,29 @@
 package com.care.model;
 
-public class Paciente {
+public class ModelPaciente {
 	
 	private String nome;
 	private String cpf;
 	private String rg;
 	private String telefone;
 	private String nascimento;
-	private String cep;
+	private String endereco;
 	private String rua;
 	private String numeroEndereco;
 	private String obs;
 	private String email;
 	
-	public Paciente () {
+	public ModelPaciente () {
 		
 	}
 	
-	public Paciente(String nome, String cpf, String rg, String telefone, String nascimento, String cep, String rua, String numeroEndereco, String obs, String email) {
+	public ModelPaciente(String nome, String cpf, String rg, String telefone, String nascimento, String endereco, String numeroEndereco, String obs, String email) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.telefone = telefone;
 		this.nascimento = nascimento;
-		this.cep = cep;
-		this.rua = rua;
+		this.endereco = endereco;
 		this.numeroEndereco = numeroEndereco;
 		this.obs = obs;
 		this.email = email;
@@ -70,19 +69,11 @@ public class Paciente {
 		this.nascimento = nascimento;
 	}
 
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public String getRua() {
+	public String getEndereco() {
 		return rua;
 	}
 
-	public void setRua(String rua) {
+	public void setEndereco(String rua) {
 		this.rua = rua;
 	}
 
@@ -111,7 +102,7 @@ public class Paciente {
 	}
 	
 		
-	public void cadastrarPaciente(Paciente paciente) {
+	public void cadastrarPaciente(ModelPaciente paciente) {
 		
 	}
 
