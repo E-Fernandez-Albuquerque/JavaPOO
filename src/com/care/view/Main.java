@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.care.controller.FuncoesBD;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -46,6 +49,8 @@ public class Main extends JFrame {
 	 * Create the frame.
 	 */
 	public Main() {
+		
+		FuncoesBD DB = new FuncoesBD();
 		
 		//WINDOW_TITLE
 		setTitle("Login");
@@ -127,7 +132,24 @@ public class Main extends JFrame {
 		JButton btnEntrar = new JButton("", icon);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String login = txtLogin.getText();
+				String senha = new String(passSenha.getPassword());
+				
+				boolean verificador = DB.verificaLogin(login, senha);
+				System.out.println(verificador);
+				
+				if(verificador == true) {
+					Logado screen = new Logado();
+					screen.setVisible(true);
+					dispose();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos. Tente novamente", "Login Error", JOptionPane.ERROR_MESSAGE, iconError);
+				}
+				
 
+				/*
 				//Inicialização de variaveis booleanas de verificaão de login e senha com valores false
 				boolean login = false;
 				boolean senha = false;
@@ -150,6 +172,8 @@ public class Main extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos. Tente novamente", "Login Error", JOptionPane.ERROR_MESSAGE, iconError);
 				}
+				*/
+				
 			}
 		}
 		);

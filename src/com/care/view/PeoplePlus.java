@@ -20,6 +20,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.text.MaskFormatter;
+
+import com.care.model.Paciente;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.SwingConstants;
 
@@ -53,14 +56,10 @@ public class PeoplePlus extends JFrame {
 	 */
 	public PeoplePlus(){
 		
+		Paciente paciente = new Paciente();
+		
 		//WINDOW_TITLE
 		setTitle("Adicionar paciente");
-		
-		
-		//DATA_ARRAYS: Arrays para armazenamento temporário e de verificação dos valores recebidos por formulário. Válidos apenas até maior conhecimento da integração de Banco de Dados ao Java.
-		//Pacientes 
-		String[][] paciente = new String[10][9];
-		String[] temp = new String[9];
 		
 		
 		//WINDOW_TITLE:
@@ -258,6 +257,10 @@ public class PeoplePlus extends JFrame {
 		JButton btnCheck = new JButton("", check);
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				/*
 				//Recebe os valores do campos do paciente de forma temporária
 				temp[0] = txtName.getText();
 				temp[1] = txtMail.getText();
@@ -289,8 +292,8 @@ public class PeoplePlus extends JFrame {
 					
 				}
 				JOptionPane.showMessageDialog(null, "Paciente cadastrado com sucesso");
+				*/
 			}
-		}
 		});
 		btnCheck.setBorder(null);
 		btnCheck.setBackground((Color) null);
