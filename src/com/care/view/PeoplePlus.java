@@ -274,6 +274,8 @@ public class PeoplePlus extends JFrame {
 				
 				dao.cadastroPaciente(paciente);
 				dao.criarBancoConsultasPaciente(paciente);
+				
+				JOptionPane.showMessageDialog(null, "Novo paciente cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 		
 				
 				/*

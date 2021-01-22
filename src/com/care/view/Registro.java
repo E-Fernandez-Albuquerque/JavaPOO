@@ -20,6 +20,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import com.care.controller.ConsultaDAO;
+import com.care.model.ModelConsulta;
+import com.care.model.ModelPaciente;
+
 public class Registro extends JFrame {
 
 	private JPanel contentPane;
@@ -161,7 +165,19 @@ public class Registro extends JFrame {
 		btnSave.setBorder(null);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ModelConsulta consulta = new ModelConsulta();
+				ConsultaDAO dao = new ConsultaDAO();
+				ModelPaciente paciente = new ModelPaciente();
 				
+				paciente.setRg("1212");
+				
+				consulta.setData(ftmData.getText());
+				consulta.setEspecialidadeMedica(txtEspecialidade.getText());
+				consulta.setObs(txtObs.getText());
+				
+				dao.registraConsulta(paciente, consulta);
+				
+				JOptionPane.showMessageDialog(null, "Informações de consulta salvas com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnSave.setBounds(487, 375, 48, 48);

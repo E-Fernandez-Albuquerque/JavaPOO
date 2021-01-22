@@ -39,7 +39,7 @@ public class PacienteDAO {
 		PreparedStatement statement = null;
 		
 		try {
-			statement = conexao.prepareStatement("CREATE TABLE IF NOT EXISTS _" + paciente.getRg() + "(id INT AUTO_INCREMENT, "
+			statement = conexao.prepareStatement("CREATE TABLE IF NOT EXISTS _" + paciente.getRg() + "(id INT AUTO_INCREMENT PRIMARY KEY, "
 					+ "data varchar(10), "
 					+ "especialidadeMedica varchar(100) NOT NULL, "
 					+ "obsConsulta TEXT)");
