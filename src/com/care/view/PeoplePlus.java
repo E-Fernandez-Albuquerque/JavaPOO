@@ -273,6 +273,7 @@ public class PeoplePlus extends JFrame {
 				paciente.setNascimento(JFBirth.getText());
 				
 				dao.cadastroPaciente(paciente);
+				dao.criarBancoConsultasPaciente(paciente);
 		
 				
 				/*

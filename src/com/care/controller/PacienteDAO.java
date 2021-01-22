@@ -33,4 +33,21 @@ public class PacienteDAO {
 		}
 		
 	}
+	
+	public void criarBancoConsultasPaciente(ModelPaciente paciente) {
+		Connection conexao = ConexaoBD.conectarBD();
+		PreparedStatement statement = null;
+		
+		try {
+			statement = conexao.prepareStatement("CREATE TABLE IF NOT EXISTS _" + paciente.getRg() + "(id INT AUTO_INCREMENT, "
+					+ "data varchar(10), "
+					+ "especialidadeMedica varchar(100) NOT NULL, "
+					+ "obsConsulta TEXT)");
+			statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
 }

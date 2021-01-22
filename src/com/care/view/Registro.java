@@ -161,7 +161,7 @@ public class Registro extends JFrame {
 		btnSave.setBorder(null);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Informações registradas com sucesso");
+				
 			}
 		});
 		btnSave.setBounds(487, 375, 48, 48);
