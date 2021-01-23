@@ -35,12 +35,14 @@ public class Registro extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				/*
 				try {
 					Registro frame = new Registro();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				*/
 			}
 		});
 	}
@@ -48,7 +50,7 @@ public class Registro extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Registro() {
+	public Registro(ModelPaciente paciente) {
 		
 		//WINDOW_TITLE
 		setTitle("Registrar consulta/condição");
@@ -71,8 +73,8 @@ public class Registro extends JFrame {
 		
 		//JFRAME
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 562, 484);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(150, 150, 562, 484);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -125,6 +127,17 @@ public class Registro extends JFrame {
 		lblSave.setBounds(487, 423, 46, 14);
 		contentPane.add(lblSave);
 		
+		//Label nome do paciente
+		JLabel lblNomePaciente = new JLabel(paciente.getNome());
+		lblNomePaciente.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		lblNomePaciente.setBounds(67, 82, 466, 14);
+		contentPane.add(lblNomePaciente);
+		
+		//Label CPF do paciente
+		JLabel lblCpfPaciente = new JLabel(paciente.getCpf());
+		lblCpfPaciente.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		lblCpfPaciente.setBounds(66, 99, 467, 14);
+		contentPane.add(lblCpfPaciente);
 		
 		//INPUTS:
 		//TxtArea_Obs
@@ -145,6 +158,7 @@ public class Registro extends JFrame {
 		
 		
 		//BUTTONS:
+		/*
 		//Back
 		JButton btnBack = new JButton("", back);
 		btnBack.setBackground(null);
@@ -158,6 +172,7 @@ public class Registro extends JFrame {
 		});
 		btnBack.setBounds(8, 8, 48, 48);
 		contentPane.add(btnBack);
+		*/
 		
 		//Check
 		JButton btnSave = new JButton("", check);
@@ -167,9 +182,8 @@ public class Registro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ModelConsulta consulta = new ModelConsulta();
 				ConsultaDAO dao = new ConsultaDAO();
-				ModelPaciente paciente = new ModelPaciente();
-				
-				paciente.setRg("1212");
+
+				paciente.getRg();
 				
 				consulta.setData(ftmData.getText());
 				consulta.setEspecialidadeMedica(txtEspecialidade.getText());
@@ -182,5 +196,7 @@ public class Registro extends JFrame {
 		});
 		btnSave.setBounds(487, 375, 48, 48);
 		contentPane.add(btnSave);
+		
+
 	}
 }

@@ -3,7 +3,10 @@ package com.care.view;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -13,11 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Canvas;
+
+import com.care.controller.PacienteDAO;
+import com.care.model.ModelPaciente;
 
 public class People extends JFrame {
 
@@ -135,9 +136,23 @@ public class People extends JFrame {
 		JButton btnSearch = new JButton("", search);
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pesquisa screenA = new Pesquisa();
-				screenA.setVisible(true);
-				dispose();
+				ModelPaciente paciente = new ModelPaciente();
+				PacienteDAO dao = new PacienteDAO();
+				paciente.setRg(JFRG.getText());
+				paciente.setNome(txtName.getText());
+				paciente.setCpf(JFCPF.getText());
+				
+				boolean condição = dao.buscaPaciente(paciente);
+				
+				if (condição) {
+					
+					Paciente screenA = new Paciente(paciente);
+					/*
+					Pesquisa screenA = new Pesquisa();
+					*/
+					screenA.setVisible(true);
+					dispose();
+				}
 			}
 		});
 		btnSearch.setBackground(null);

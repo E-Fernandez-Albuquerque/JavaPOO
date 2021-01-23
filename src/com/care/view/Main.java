@@ -58,12 +58,7 @@ public class Main extends JFrame {
 		//WINDOW_RESIZE:
 		setResizable(false);
 		
-		//LOGIN & SENHA:
-		//Arrays para validação do login até conhecimentos necessários de Banco de Dados com Java
-		String logins[] = {"eric", "erick", "marcelo"};
-		String senhas[] = {"1234", "abcd", "xyz"};
-		
-		
+
 		//ICONS: Carrega imagens utilizadas como ícones durante o projeto
 		ImageIcon icon = new ImageIcon("src/imgs/check.png");
 		ImageIcon medical = new ImageIcon("src/imgs/medical.png");
