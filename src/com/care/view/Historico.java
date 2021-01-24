@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.care.model.ModelPaciente;
+import javax.swing.table.DefaultTableModel;
 
 public class Historico extends JFrame {
 
@@ -100,6 +101,16 @@ public class Historico extends JFrame {
 		
 		//TABLE:
 		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"Data", "Especialidade", "Observa\u00E7\u00F5es"
+			}
+		));
 		
 		
 		
