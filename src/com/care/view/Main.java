@@ -67,7 +67,7 @@ public class Main extends JFrame {
 		
 		//JFRAME:
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 195);
+		setBounds(100, 100, 450, 225);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -182,6 +182,19 @@ public class Main extends JFrame {
 		lblLogin.setFont(new Font("Tw Cen MT", Font.PLAIN, 11));
 		lblLogin.setBounds(344, 125, 48, 14);
 		contentPane.add(lblLogin);
+		
+		JButton btnNewButton = new JButton("Novo colaborador");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CadastroColaborador screen = new CadastroColaborador();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		btnNewButton.setBounds(10, 155, 120, 20);
+		contentPane.add(btnNewButton);
 		
 		
 	}

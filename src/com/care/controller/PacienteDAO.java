@@ -47,8 +47,10 @@ public class PacienteDAO {
 
 		try {
 			statement = conexao.prepareStatement("CREATE TABLE IF NOT EXISTS _" + paciente.getRg()
-					+ "(id INT AUTO_INCREMENT PRIMARY KEY, " + "data varchar(10), "
-					+ "especialidadeMedica varchar(100) NOT NULL, " + "obsConsulta TEXT)");
+					+ "(id INT AUTO_INCREMENT PRIMARY KEY, "
+					+ "data varchar(10), "
+					+ "especialidadeMedica varchar(100) NOT NULL, "
+					+ "obsConsulta TEXT)");
 			statement.executeUpdate();
 
 		} catch (SQLException e) {
