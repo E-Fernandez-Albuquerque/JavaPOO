@@ -14,14 +14,17 @@ import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import com.care.model.ModelPaciente;
-import javax.swing.table.DefaultTableModel;
+import com.care.model.ModelTabela;
+import javax.swing.JScrollPane;
 
 public class Historico extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	DefaultTableModel modeloTabela = new DefaultTableModel();
 
 	/**
 	 * Launch the application.
@@ -44,10 +47,13 @@ public class Historico extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	
 	public Historico(ModelPaciente paciente) {
 		
+		
 		//WINDOW_TITLE
-				setTitle("Histórico");
+		setTitle("Histórico");
 		
 		//ICONS:
 		ImageIcon back = new ImageIcon("src/imgs/back.png");
@@ -84,33 +90,8 @@ public class Historico extends JFrame {
 		//Label cpf do paciente
 		JLabel lblCpfPaciente = new JLabel(paciente.getCpf());
 		lblCpfPaciente.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		//BUTTONS:
-		/*
-		//Back
-		JButton btnBack = new JButton("", back);
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Paciente screen = new Paciente();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		btnBack.setBackground(null);
-		btnBack.setBorder(null);
-		*/
 		
-		//TABLE:
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
-			new String[] {
-				"Data", "Especialidade", "Observa\u00E7\u00F5es"
-			}
-		));
+		JScrollPane scrollPane = new JScrollPane();
 		
 		
 		
@@ -123,17 +104,17 @@ public class Historico extends JFrame {
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(table, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
 							.addContainerGap())
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel)
 								.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(8)
-									.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+									.addComponent(lblTitle, GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
 									.addGap(52)
 									.addComponent(lblIcon, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -160,11 +141,25 @@ public class Historico extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblCpf)
 						.addComponent(lblCpfPaciente, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGap(18)
-					.addComponent(table, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-					.addGap(4))
+					.addGap(37)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+					.addContainerGap())
 		);
+		
+		table = new JTable(modeloTabela);
+		scrollPane.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
+		
+		modeloTabela.addColumn("Data");
+		modeloTabela.addColumn("Especialidade Médica");
+		modeloTabela.addColumn("Observações");
+		
+		ModelTabela tabela = new ModelTabela();
+		tabela.retornaHistorico(paciente);
+		int c = 0;
+		for(String dt : tabela.getData()) {
+			modeloTabela.addRow(new Object[] {tabela.getData().get(c), tabela.getEspecialidade().get(c), tabela.getObservacoes().get(c)});
+			c++;
+		}
 	}
 }

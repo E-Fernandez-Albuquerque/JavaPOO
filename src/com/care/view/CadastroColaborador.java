@@ -72,6 +72,7 @@ public class CadastroColaborador extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 
 		// MASKS: Criação das máscaras necessárias para formulário
 		// Birth
@@ -102,20 +103,6 @@ public class CadastroColaborador extends JFrame {
 		lblCadastroDePaciente.setFont(new Font("Tw Cen MT", Font.PLAIN, 30));
 		lblCadastroDePaciente.setBounds(209, 11, 370, 30);
 		contentPane.add(lblCadastroDePaciente);
-
-		JButton btnBack = new JButton("", back);
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Main screen = new Main();
-				screen.setVisible(true);
-				dispose();
-			}
-		});
-		btnBack.setBorder(null);
-		btnBack.setBackground((Color) null);
-		btnBack.setBounds(12, 11, 48, 48);
-		contentPane.add(btnBack);
 
 		JLabel lblIcon = new JLabel(medical);
 		lblIcon.setBounds(707, 11, 48, 48);
@@ -206,10 +193,14 @@ public class CadastroColaborador extends JFrame {
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//CRIAÇÃO DE OBJETOS
 				ModelColaborador colaborador = new ModelColaborador();
 				ColaboradorDAO dao = new ColaboradorDAO();
+				
+				//EXECUÇÃO DO MÉTODO DE CRIAÇÃO DA TABELA
 				dao.criarTableColaboradores();
 				
+				//RECEPÇÃO DAS INFORMAÇÕES
 				colaborador.setNome(txtNome.getText());
 				colaborador.setRg(JFRG.getText());
 				colaborador.setCpf(JFCPF.getText());
@@ -220,8 +211,10 @@ public class CadastroColaborador extends JFrame {
 				colaborador.setLogin(txtLogin.getText());
 				colaborador.setSenha(new String(pswdSenha.getPassword()));
 				
-				dao.cadastroPaciente(colaborador);
+				//REGISTRO EM BD
+				dao.cadastroColaborador(colaborador);
 				
+				//JANELA DE CONFIRMAÇÃO
 				JOptionPane.showMessageDialog(null, "Novo colaborador cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -239,5 +232,18 @@ public class CadastroColaborador extends JFrame {
 		pswdSenha = new JPasswordField();
 		pswdSenha.setBounds(102, 227, 133, 20);
 		contentPane.add(pswdSenha);
+		
+		JButton btnBack = new JButton(back);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main screen = new Main();
+				screen.setVisible(true);
+				dispose();
+			}
+		});
+		btnBack.setBorder(null);
+		btnBack.setBackground((Color) null);
+		btnBack.setBounds(10, 0, 48, 48);
+		contentPane.add(btnBack);
 	}
 }

@@ -57,6 +57,5 @@ public class ModelPaciente extends ModelPessoas {
 	public void cadastrarPaciente(ModelPaciente paciente) {
 		
 	}
-
 }
 	

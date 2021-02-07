@@ -1,3 +1,4 @@
+//SUPERCLASSE
 package com.care.model;
 
 public class ModelPessoas {
@@ -47,7 +48,4 @@ public class ModelPessoas {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	
-	
 }

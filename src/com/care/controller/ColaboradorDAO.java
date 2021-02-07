@@ -10,7 +10,7 @@ import com.care.model.ModelColaborador;
 public class ColaboradorDAO {
 
 	// FUNÇÃO PARA CADASTRAR UM NOVO COLABORADOR
-	public void cadastroPaciente(ModelColaborador colaborador) {
+	public void cadastroColaborador(ModelColaborador colaborador) {
 		Connection conexao = ConexaoBD.conectarBD();
 		PreparedStatement statement = null;
 

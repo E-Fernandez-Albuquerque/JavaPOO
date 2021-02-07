@@ -186,14 +186,24 @@ public class Main extends JFrame {
 		JButton btnNewButton = new JButton("Novo colaborador");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String login = txtLogin.getText();
+				String senha = new String(passSenha.getPassword());
 				
-				CadastroColaborador screen = new CadastroColaborador();
-				screen.setVisible(true);
-				dispose();
+				boolean verificador = DB.verificaLogin(login, senha);
+				System.out.println(verificador);
+				
+				if(verificador == true) {
+					CadastroColaborador screen = new CadastroColaborador();
+					screen.setVisible(true);
+					dispose();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Para realizar o cadastro é necessário fornecer credenciais válidas!!!", "Login Error", JOptionPane.ERROR_MESSAGE, iconError);
+				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 9));
-		btnNewButton.setBounds(10, 155, 120, 20);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnNewButton.setBounds(182, 152, 110, 23);
 		contentPane.add(btnNewButton);
 		
 		

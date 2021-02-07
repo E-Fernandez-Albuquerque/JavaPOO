@@ -7,15 +7,8 @@ public class ModelConsulta {
 	private String data;
 	
 	public ModelConsulta () {
-		
 	}
 	
-	public ModelConsulta(String especialidadeMedica, String obs, String data) {
-		this.especialidadeMedica = especialidadeMedica;
-		this.obs = obs;
-		this.data = data;
-	}
-
 	public String getEspecialidadeMedica() {
 		return especialidadeMedica;
 	}
@@ -39,7 +32,4 @@ public class ModelConsulta {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
-
 }
